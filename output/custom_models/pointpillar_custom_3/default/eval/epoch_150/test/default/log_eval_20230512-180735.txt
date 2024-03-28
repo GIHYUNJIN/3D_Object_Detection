@@ -1,0 +1,192 @@
+2023-05-12 18:07:35,139   INFO  **********************Start logging**********************
+2023-05-12 18:07:35,139   INFO  CUDA_VISIBLE_DEVICES=1
+2023-05-12 18:07:35,139   INFO  cfg_file         cfgs/custom_models/pointpillar_custom_3.yaml
+2023-05-12 18:07:35,139   INFO  batch_size       16
+2023-05-12 18:07:35,139   INFO  workers          4
+2023-05-12 18:07:35,139   INFO  extra_tag        default
+2023-05-12 18:07:35,139   INFO  ckpt             /root/OpenPCDet/output/custom_models/pointpillar_custom_3/36_3/ckpt/checkpoint_epoch_150.pth
+2023-05-12 18:07:35,139   INFO  pretrained_model None
+2023-05-12 18:07:35,139   INFO  launcher         none
+2023-05-12 18:07:35,139   INFO  tcp_port         18888
+2023-05-12 18:07:35,139   INFO  local_rank       0
+2023-05-12 18:07:35,139   INFO  set_cfgs         None
+2023-05-12 18:07:35,139   INFO  max_waiting_mins 30
+2023-05-12 18:07:35,139   INFO  start_epoch      0
+2023-05-12 18:07:35,139   INFO  eval_tag         default
+2023-05-12 18:07:35,139   INFO  eval_all         False
+2023-05-12 18:07:35,139   INFO  ckpt_dir         None
+2023-05-12 18:07:35,139   INFO  save_to_file     False
+2023-05-12 18:07:35,139   INFO  infer_time       False
+2023-05-12 18:07:35,139   INFO  cfg.ROOT_DIR: /root/OpenPCDet
+2023-05-12 18:07:35,139   INFO  cfg.LOCAL_RANK: 0
+2023-05-12 18:07:35,139   INFO  cfg.CLASS_NAMES: ['vehicle', 'bus', 'truck', 'policecar', 'ambulance', 'schoolbus', 'othercar', 'trafficsign']
+2023-05-12 18:07:35,139   INFO  ----------- DATA_CONFIG -----------
+2023-05-12 18:07:35,139   INFO  cfg.DATA_CONFIG.DATASET: CustomDataset
+2023-05-12 18:07:35,139   INFO  cfg.DATA_CONFIG.DATA_PATH: /root/data/openpcdet/36_3
+2023-05-12 18:07:35,139   INFO  cfg.DATA_CONFIG.POINT_CLOUD_RANGE: [0, -39.68, -0.2, 69.12, 39.68, 4.8]
+2023-05-12 18:07:35,139   INFO  ----------- MAP_CLASS_TO_KITTI -----------
+2023-05-12 18:07:35,139   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.vehicle: vehicle
+2023-05-12 18:07:35,139   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.bus: bus
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.truck: truck
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.policecar: policecar
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.ambulance: ambulance
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.schoolbus: schoolbus
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.othercar: othercar
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.trafficsign: trafficsign
+2023-05-12 18:07:35,140   INFO  ----------- DATA_SPLIT -----------
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_SPLIT.train: train
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_SPLIT.val: val
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_SPLIT.test: test
+2023-05-12 18:07:35,140   INFO  ----------- INFO_PATH -----------
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.INFO_PATH.train: ['custom_infos_train.pkl']
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.INFO_PATH.val: ['custom_infos_val.pkl']
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.INFO_PATH.test: ['custom_infos_test.pkl']
+2023-05-12 18:07:35,140   INFO  ----------- POINT_FEATURE_ENCODING -----------
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.encoding_type: absolute_coordinates_encoding
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.used_feature_list: ['x', 'y', 'z', 'intensity']
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.src_feature_list: ['x', 'y', 'z', 'intensity']
+2023-05-12 18:07:35,140   INFO  ----------- DATA_AUGMENTOR -----------
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.DISABLE_AUG_LIST: ['placeholder']
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.AUG_CONFIG_LIST: [{'NAME': 'gt_sampling', 'USE_ROAD_PLANE': False, 'DB_INFO_PATH': ['custom_dbinfos_train.pkl'], 'PREPARE': {'filter_by_min_points': ['vehicle:30', 'bus:30', 'truck:30', 'policecar:30', 'ambulance:30', 'schoolbus:30', 'othercar:30', 'trafficsign:30'], 'filter_by_difficulty': [-1]}, 'SAMPLE_GROUPS': ['vehicle:15', 'bus:15', 'truck:15', 'policecar:15', 'ambulance:15', 'schoolbus:15', 'othercar:15', 'trafficsign:15'], 'NUM_POINT_FEATURES': 4, 'DATABASE_WITH_FAKELIDAR': False, 'REMOVE_EXTRA_WIDTH': [0.0, 0.0, 0.0], 'LIMIT_WHOLE_SCENE': False}, {'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG.DATA_PROCESSOR: [{'NAME': 'mask_points_and_boxes_outside_range', 'REMOVE_OUTSIDE_BOXES': True}, {'NAME': 'shuffle_points', 'SHUFFLE_ENABLED': {'train': True, 'test': False}}, {'NAME': 'transform_points_to_voxels', 'VOXEL_SIZE': [0.16, 0.16, 4], 'MAX_POINTS_PER_VOXEL': 32, 'MAX_NUMBER_OF_VOXELS': {'train': 16000, 'test': 40000}}]
+2023-05-12 18:07:35,140   INFO  cfg.DATA_CONFIG._BASE_CONFIG_: cfgs/dataset_configs/custom_dataset_3.yaml
+2023-05-12 18:07:35,140   INFO  ----------- MODEL -----------
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.NAME: PointPillar
+2023-05-12 18:07:35,140   INFO  ----------- VFE -----------
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.VFE.NAME: PillarVFE
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.VFE.WITH_DISTANCE: False
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.VFE.USE_ABSLOTE_XYZ: True
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.VFE.USE_NORM: True
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.VFE.NUM_FILTERS: [64]
+2023-05-12 18:07:35,140   INFO  ----------- MAP_TO_BEV -----------
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.MAP_TO_BEV.NAME: PointPillarScatter
+2023-05-12 18:07:35,140   INFO  cfg.MODEL.MAP_TO_BEV.NUM_BEV_FEATURES: 64
+2023-05-12 18:07:35,140   INFO  ----------- BACKBONE_2D -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.NAME: BaseBEVBackbone
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.LAYER_NUMS: [3, 5, 5]
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.LAYER_STRIDES: [2, 2, 2]
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.NUM_FILTERS: [64, 128, 256]
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.UPSAMPLE_STRIDES: [1, 2, 4]
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.BACKBONE_2D.NUM_UPSAMPLE_FILTERS: [128, 128, 128]
+2023-05-12 18:07:35,141   INFO  ----------- DENSE_HEAD -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.NAME: AnchorHeadSingle
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.CLASS_AGNOSTIC: False
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.USE_DIRECTION_CLASSIFIER: True
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.DIR_OFFSET: 0.78539
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.DIR_LIMIT_OFFSET: 0.0
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.NUM_DIR_BINS: 2
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.ANCHOR_GENERATOR_CONFIG: [{'class_name': 'vehicle', 'anchor_sizes': [[3.38, 1.9, 1.31]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'bus', 'anchor_sizes': [[6.88, 2.42, 2.45]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'truck', 'anchor_sizes': [[5.59, 2.32, 2.3]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'policecar', 'anchor_sizes': [[3.86, 2.01, 1.63]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'ambulance', 'anchor_sizes': [[4.06, 2.12, 2.2]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'schoolbus', 'anchor_sizes': [[4.35, 2.08, 1.91]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'othercar', 'anchor_sizes': [[8.73, 2.69, 2.86]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}, {'class_name': 'trafficsign', 'anchor_sizes': [[1.1, 2.13, 1.19]], 'anchor_rotations': [0, 1.57], 'anchor_bottom_heights': [0], 'align_center': False, 'feature_map_stride': 2, 'matched_threshold': 0.6, 'unmatched_threshold': 0.45}]
+2023-05-12 18:07:35,141   INFO  ----------- TARGET_ASSIGNER_CONFIG -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.NAME: AxisAlignedTargetAssigner
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.POS_FRACTION: -1.0
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.SAMPLE_SIZE: 512
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.NORM_BY_NUM_EXAMPLES: False
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.MATCH_HEIGHT: False
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.BOX_CODER: ResidualCoder
+2023-05-12 18:07:35,141   INFO  ----------- LOSS_CONFIG -----------
+2023-05-12 18:07:35,141   INFO  ----------- LOSS_WEIGHTS -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.cls_weight: 1.0
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.loc_weight: 2.0
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.dir_weight: 0.2
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.code_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+2023-05-12 18:07:35,141   INFO  ----------- POST_PROCESSING -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.SCORE_THRESH: 0.1
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.OUTPUT_RAW_SCORE: False
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.EVAL_METRIC: kitti
+2023-05-12 18:07:35,141   INFO  ----------- NMS_CONFIG -----------
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.MULTI_CLASSES_NMS: False
+2023-05-12 18:07:35,141   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_TYPE: nms_gpu
+2023-05-12 18:07:35,142   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_THRESH: 0.01
+2023-05-12 18:07:35,142   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_PRE_MAXSIZE: 4096
+2023-05-12 18:07:35,142   INFO  cfg.MODEL.POST_PROCESSING.NMS_CONFIG.NMS_POST_MAXSIZE: 500
+2023-05-12 18:07:35,142   INFO  ----------- OPTIMIZATION -----------
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.BATCH_SIZE_PER_GPU: 4
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.NUM_EPOCHS: 80
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.OPTIMIZER: adam_onecycle
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.LR: 0.003
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.WEIGHT_DECAY: 0.01
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.MOMENTUM: 0.9
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.MOMS: [0.95, 0.85]
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.PCT_START: 0.4
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.DIV_FACTOR: 10
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.DECAY_STEP_LIST: [35, 45]
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.LR_DECAY: 0.1
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.LR_CLIP: 1e-07
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.LR_WARMUP: False
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.WARMUP_EPOCH: 1
+2023-05-12 18:07:35,142   INFO  cfg.OPTIMIZATION.GRAD_NORM_CLIP: 10
+2023-05-12 18:07:35,142   INFO  cfg.TAG: pointpillar_custom_3
+2023-05-12 18:07:35,142   INFO  cfg.EXP_GROUP_PATH: custom_models
+2023-05-12 18:07:35,144   INFO  Loading Custom dataset.
+2023-05-12 18:07:35,171   INFO  Total samples for CUSTOM dataset: 6824
+2023-05-12 18:07:36,350   INFO  ==> Loading parameters from checkpoint /root/OpenPCDet/output/custom_models/pointpillar_custom_3/36_3/ckpt/checkpoint_epoch_150.pth to GPU
+2023-05-12 18:07:36,477   INFO  ==> Checkpoint trained from version: pcdet+0.6.0+a68aaa6
+2023-05-12 18:07:36,484   INFO  ==> Done (loaded 127/127)
+2023-05-12 18:07:36,488   INFO  *************** EPOCH 150 EVALUATION *****************
+2023-05-12 18:08:57,658   INFO  *************** Performance of EPOCH 150 *****************
+2023-05-12 18:08:57,658   INFO  Generate label finished(sec_per_example: 0.0119 second).
+2023-05-12 18:08:57,658   INFO  recall_roi_0.3: 0.000000
+2023-05-12 18:08:57,658   INFO  recall_rcnn_0.3: 0.730831
+2023-05-12 18:08:57,658   INFO  recall_roi_0.5: 0.000000
+2023-05-12 18:08:57,658   INFO  recall_rcnn_0.5: 0.685242
+2023-05-12 18:08:57,658   INFO  recall_roi_0.7: 0.000000
+2023-05-12 18:08:57,658   INFO  recall_rcnn_0.7: 0.597874
+2023-05-12 18:08:57,661   INFO  Average predicted number of objects(6824 samples): 4.341
+2023-05-12 18:09:30,385   INFO  
+vehicle AP@0.70, 0.50, 0.30:
+bbox AP:86.2155, 86.2155, 86.2155
+bev  AP:71.2113, 71.2113, 71.2113
+3d   AP:71.6158, 71.6158, 71.6158
+aos  AP:84.97, 84.97, 84.97
+
+bus AP@0.70, 0.50, 0.30:
+bbox AP:79.5639, 79.5639, 79.5639
+bev  AP:71.0029, 71.0029, 71.0029
+3d   AP:71.6261, 71.6261, 71.6261
+aos  AP:79.48, 79.48, 79.48
+
+truck AP@0.70, 0.50, 0.30:
+bbox AP:79.1300, 79.1300, 79.1300
+bev  AP:67.8156, 67.8156, 67.8156
+3d   AP:69.0007, 69.0007, 69.0007
+aos  AP:78.15, 78.15, 78.15
+
+policecar AP@0.70, 0.50, 0.30:
+bbox AP:90.8243, 90.8243, 90.8243
+bev  AP:89.6146, 89.6146, 89.6146
+3d   AP:90.4474, 90.4474, 90.4474
+aos  AP:90.81, 90.81, 90.81
+
+ambulance AP@0.70, 0.50, 0.30:
+bbox AP:81.5126, 81.5126, 81.5126
+bev  AP:80.9224, 80.9224, 80.9224
+3d   AP:81.1400, 81.1400, 81.1400
+aos  AP:81.50, 81.50, 81.50
+
+schoolbus AP@0.70, 0.50, 0.30:
+bbox AP:81.5687, 81.5687, 81.5687
+bev  AP:81.2716, 81.2716, 81.2716
+3d   AP:81.5040, 81.5040, 81.5040
+aos  AP:81.55, 81.55, 81.55
+
+othercar AP@0.70, 0.50, 0.30:
+bbox AP:72.4485, 72.4485, 72.4485
+bev  AP:58.6525, 58.6525, 58.6525
+3d   AP:62.9520, 62.9520, 62.9520
+aos  AP:70.78, 70.78, 70.78
+
+trafficsign AP@0.70, 0.50, 0.30:
+bbox AP:40.9275, 40.9275, 40.9275
+bev  AP:19.7850, 19.7850, 19.7850
+3d   AP:17.6352, 17.6352, 17.6352
+aos  AP:40.07, 40.07, 40.07
+
+Overall AP@0.70, 0.50, 0.30:
+bbox AP:76.5239, 76.5239, 76.5239
+bev  AP:67.5345, 67.5345, 67.5345
+3d   AP:68.2401, 68.2401, 68.2401
+aos  AP:75.91, 75.91, 75.91
+
+2023-05-12 18:09:30,395   INFO  Result is saved to /root/OpenPCDet/output/custom_models/pointpillar_custom_3/default/eval/epoch_150/test/default
+2023-05-12 18:09:30,395   INFO  ****************Evaluation done.*****************

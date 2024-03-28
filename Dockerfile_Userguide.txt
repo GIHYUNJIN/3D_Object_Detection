@@ -1,0 +1,26 @@
+도커파일을 활용한 실행환경 구축 가이드 
+
+1. 도커파일이 있는 경로로 이동
+
+2. 명령어 실행 : docker build -t 1_36_images . 
+
+3. 생성된 이미지로 도커 컨테이너 생성 
+docker container run --gpus "device=0" --name=pointpillars --shm-size 8G --restart=always -it -p 32001:22 -p 32002:55536 -v /data/1_36:/root/data 1_36_images /bin/bash 
+
+4. 컨테이너 내 작업 경로 이동 
+cd /root/computer-vision-object-detection-pointpillars
+
+5. conda 가상환경 생성
+conda env create -f demo_requirement.yaml
+conda init
+source ~/.bashrc
+conda activate openpc
+
+5. 추론 방법 및 예시 
+python test.py --cfg_file cfgs/custom_models/pointpillar_custom_3.yaml --batch_size 32 --ckpt ../output/custom_models/pointpillar_custom_3/36_3/ckpt/checkpoint_epoch_150.pth --file_name 16_113821_220609_31
+
+6. 데모 방법
+cd /root/computer-vision-object-detection-pointpillars/demo
+python app.py
+
+6. 모델 학습 방법 및 추가 정보는 작업 경로 내 README.md 파일 혹은 회사 깃랩 computer-vision-object-detection-pointpillars 를 참고해 주세요
